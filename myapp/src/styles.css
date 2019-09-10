@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ff69b4;
+}
+.menu li {
+    float: left;
+}
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: #111;
+}
+.menu li a:hover:not(.active) {
+    background-color: #4caf50;
+}
+.parent-container {
+    padding-left: 10px;
+}

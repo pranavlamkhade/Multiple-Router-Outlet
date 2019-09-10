@@ -1,0 +1,84 @@
+<nav [ngClass]="'menu'">
+<ul>
+  <li><a routerLink="./book" routerLinkActivate="active">Book</a></li>
+  <li><a [routerLink]="[{outlets:{bookList:['bookdetail']}}]" routerLinkActivate="active">Book Detaild</a></li>
+</ul>
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name="bookList"> </router-outlet>
+
+<hr>
+
+
+<h1>*Ng-template Example...</h1>
+
+<h4>Div Section with ngIf</h4>
+<div *ngIf="display">
+  Div with *ngIf
+</div>
+<h4>Ng-template Section with ngIf</h4>
+<ng-template [ngIf]="display">
+  ngIf Display with ng-template
+</ng-template>
+
+<hr>
+
+<h4>Div Section with ngIf else</h4>
+<div *ngIf="display ; else elseblock">
+  Div with *ngIf else
+</div>
+<h4>Ng-template Section with ngIf else</h4>
+<ng-template #elseblock> <!-- This is known as refrance veriable -->
+  <div>ngIf else Display with ng-template</div>
+</ng-template>
+
+<hr>
+
+<h4>div With ngFor</h4>
+<div *ngFor="let book of books; let i=index;">
+  {{ i + 1 }}. {{book.name}} : {{book.price}}
+</div>
+<h4>ng-template With ngFor</h4>
+<ng-template ngFor let-book [ngForOf]="books" let-i="index" >
+  <p>  {{ i + 1 }}. {{book.name}} : {{book.price}} </p>
+</ng-template>
+
+<hr>
+
+<h4>div With ngSwitch</h4>
+<div [ngSwitch]="'JavaScript'">
+  <p *ngSwitchCase="'Angular'">Angular Courese</p>
+  <p *ngSwitchCase="'TypeScripr'">TypeScripr Courese</p>
+  <p *ngSwitchCase="'JavaScript'">JavaScript Courese</p>
+  <p *ngSwitchDefault>HTML Courese</p>
+</div>
+<h4>ng-template With ngSwitch</h4>
+<div [ngSwitch]="'TypeScripr'">
+  <ng-template [ngSwitchCase]="'Angular'">
+    <p>Angular Courese</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'TypeScripr'">
+    <p>TypeScripr Courese</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'JavaScript'">
+    <p>JavaScript Courese</p>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <p>HTML Courese</p>
+  </ng-template>
+</div>
+
+<hr>
+
+<h1>*Ng-Container Example</h1>
+<table>
+  <tbody>
+    <ng-container *ngFor="let book of books">
+      <tr *ngIf="book.id>1">
+        <td> {{ book.name }} </td>
+      </tr>
+    </ng-container> 
+  </tbody>
+</table>
+
+<hr>
